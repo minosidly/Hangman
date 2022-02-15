@@ -25,6 +25,7 @@ while True:
     elif guess_letter in cache:
         print(f"'{guess_letter}' has already been guessed.")
     
+    
     else:
         if guess_letter in t_g_w:
             cache.append(guess_letter)
@@ -42,16 +43,16 @@ while True:
                 print()
                 print('You won! :)')
                 break
-        
-        elif strike == 11:
-            print('11/11 srtikes, you lost.')
-            print(f"The correct word was '{guess_word}'.")
-            break
 
         else:
             cache.append(guess_letter)
             strike += 1
             print(f'Incorrect, you have {strike}/11 strikes.')
+            if strike == 11:
+                print('You lost.')
+                print(f"The correct word was '{guess_word}'.")
+                break
             
     print()
-  
+    
+input('Press ENTER to exit')
